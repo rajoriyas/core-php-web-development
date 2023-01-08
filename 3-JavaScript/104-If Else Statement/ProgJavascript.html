@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript - Variable</title>
+	</head>
+	<body>
+		<input type="text" id="enteredMagicWord">
+		<button id="check">validate</button>
+		<script type="text/javascript">
+			document.getElementById("check").onclick = function() {
+				var enteredText = document.getElementById("enteredMagicWord").value;
+				if(enteredText == "rajoriyas") {
+					alert("Yoo!, that's right.");
+				}
+				else {
+					alert("Sorry!, try again.");
+				}
+			}
+		</script>
+	</body>
+</html>

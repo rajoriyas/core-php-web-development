@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JQuery UI</title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script src="jquery-ui/jquery-ui.js"></script>
+    <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="draggable1">Drag me!</div>
+    <div id="draggable5">Drag me GRID!</div>
+    <div id="draggable2">Drag vertically!</div>
+    <div id="draggable3">Drag Horizontally!</div>
+    <div style="width:100px; height:100px; background-color:pink"><span id="draggable4">I'm stuck</span></div>
+    <div style="width:100px; height:100px; background-color:green" id="droppable"></div>
+
+    <div style="width:100px; height:100px; background-color:red" id="resizable"></div>
+    <div style="width:100px; height:100px; background-color:blue" id="resizable2"></div>
+    <div style="width:100px; height:100px; background-color:black" id="resizable3"></div>
+    <div style="width:100px; height:100px; background-color:yellow" id="resizable4"></div>
+    <script type="text/javascript">
+      $("#draggable1").draggable();
+      $("#draggable5").draggable({grid:[20,20]});
+      $("#draggable2").draggable({axis:"y"});
+      $("#draggable3").draggable({axis:"x"});
+      $("#draggable4").draggable({containment:"parent"});
+      $("#droppable").droppable();
+      $("#resizable").resizable();
+      $("#resizable2").resizable({grid:[80,80]});
+      $("#resizable3").resizable({
+        alsoResize: "#resizable4",
+        grid:[80,80],
+        resize: function(event, ui) {
+          if("#resizable4").width() == 300px) { // use to get just width & similiar to css.width() but by this we can't edit width
+            alert("hello");
+          }
+        }
+      });
+      $("#resizable4").resizable();
+    </script>
+  </body>
+</html>

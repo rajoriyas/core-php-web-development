@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+	    <title>JavaScript</title>
+	</head>
+	<body>
+		<p id="text">JavaScript is ...</p>
+		<button id="myButton">Style text</button> <!similiar to onclick.>
+		<button id="myButton2">Hide text</button> <!similiar to onclick.>
+		<script type="text/javascript">
+			//This is single line comment.
+			/*This is multi line comment.*/
+			alert('Page is loaded.')
+			document.getElementById("myButton").onclick = function() {
+				document.getElementById("text").style.color = "red";
+				document.getElementById("text").style.fontSize = "50px";
+			}
+			document.getElementById("myButton2").onclick = function() {
+				document.getElementById("text").style.display = "none";
+			}
+		</script>
+	</body>
+</html>
+

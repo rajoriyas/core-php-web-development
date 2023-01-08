@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+		<head>
+			<title>jQuery</title>
+			<script src="jquery-3.3.1.min.js"></script>
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	<!-- for color animation-->
+			<style type="text/css">
+				#circle {
+					width:150px;
+					height:150px;
+					border-radius:50%;
+					background-color:green;
+					margin:15px;
+					float:left;
+				}
+
+			</style>
+		</head>
+		<body>
+			<div id="circle"></div>
+			<button>Toggle Text</button>
+			<script type="text/javascript">
+				$("button").click(function() {
+					$("#circle").animate({
+						backgroundColor: "blue",
+						width:"400px",
+						height:"400px",
+						margin:"10px"
+					}, 2000, function(){
+						$(this).css("background-color","red");
+					});
+				});
+			</script>
+		</body>
+</html>

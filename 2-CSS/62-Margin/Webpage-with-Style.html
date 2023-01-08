@@ -1,0 +1,52 @@
+ 	
+<!doctype html>
+<html>
+	<head>
+		<title>Webpage with Style</title>
+		<style type="text/css">
+			.red {		
+				color:red;
+			}
+			.large {
+				font-size:200%;
+			}	
+			#pink{
+				color:pink;
+			}
+				.underlined {
+				text-decoration:underline;
+			}
+			#first-section {
+				background-color:#B45F04;	
+				width:500px;
+				margin:50px 20px;	<!top&bottom and left&right>
+				
+			}
+			#second-section {
+				background-color:#0B4C5F;	
+				width:600px;
+				margin:50px 20px 50px 20px;	<!top then cloclvise>
+			}
+			#nonfloating-section {
+				clear:both;
+				margin-top:100px;
+				margin-bottom:100px;
+				margin-left:100px;
+				margin-right:100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id=first-section>
+			<p class="red large">Rahul Rajoriya</p>
+			<p class="large">Rajoriya Rahul</p>
+		</div>
+		<div id=second-section>
+			<p id="pink">h1 font size is 2.5 times of p font size. <span class="underlined">This line in underlined</span></p>  
+		</div>
+		<div id=nonfloating-section>
+			<p>Non Floating Setion</p>  
+		</div>		
+	</body>
+</html>
+

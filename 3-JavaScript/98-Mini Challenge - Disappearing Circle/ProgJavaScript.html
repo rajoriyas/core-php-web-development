@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+	    <title>JavaScript</title>
+		<style type="text/css">
+			#red {
+				height : 100px;
+				width : 100px;
+				background-color : red;
+				border-radius : 50px;
+			}
+			#blue {
+				height : 100px;
+				width : 100px;
+				background-color : blue;
+				border-radius : 50px;
+			}
+			#yellow {
+				height : 100px;
+				width : 100px;
+				background-color : yellow;
+				border-radius : 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="red">
+		
+		</div>
+		<div id="blue">
+		
+		</div>
+		<div id="yellow">
+		
+		</div>
+		<button id="myButton">Hide circle</button> <!similiar to onclick.>
+		<script type="text/javascript">
+			//This is single line comment.
+			/*This is multi line comment.*/
+			alert('Page is loaded.')
+			document.getElementById("myButton").onclick = function() {
+				document.getElementById("red").style.display = "none";
+				document.getElementById("blue").style.display = "none";
+				document.getElementById("yellow").style.display = "none";
+			}
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript - Variable</title>
+	</head>
+	<body>
+		<div id="tweets">
+		</div>
+		<script type="text/javascript">
+			var tweetText = "";
+			var myTweets = ["Hi! everyone", "i am rajoriyas", "nice to meet you", "good bye!"];
+			for(var i=0;i<myTweets.length;i++) {
+				tweetText = tweetText+"<p>"+myTweets[i]+"</p>"; /*paragraph is used to set line by line */
+			}
+			document.getElementById("tweets").innerHTML = tweetText;
+		</script>
+	</body>
+</html>

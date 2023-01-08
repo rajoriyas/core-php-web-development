@@ -1,0 +1,31 @@
+<!-- <?php
+  echo file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCly0XXUHZA4o16By1lrBg1UBr1pdTZqSI");
+?> -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Geocoding</title>
+  </head>
+  <body>
+
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $.ajax({
+      url: "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCly0XXUHZA4o16By1lrBg1UBr1pdTZqSI",
+      type: "GET", //GET requests
+      success: function(data) {
+        //console.log(data);
+		$.each(data["results"][0]["address_components"], function(key, values) {
+			//alert(values["types"][0]);	//it will show all of the types, but of first number like: country not political 
+			if(values["types"][0] == "country") {
+				alert(values["short_name"]);
+			}
+				
+		})
+      }
+    })
+  </script>
+</html>

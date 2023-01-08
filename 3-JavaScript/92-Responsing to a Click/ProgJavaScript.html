@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+	    <title>JavaScript</title>
+	</head>
+	<body>
+		<p id="text">Hello World!</p>
+		<button id="myButton">Click Here!</button> <!--similiar to onclick.-->
+		<!--This is multi line comment.-->
+		<script type="text/javascript">
+			//This is single line comment.
+			/*This is multi line comment.*/
+			document.getElementById("myButton").onclick = function() {
+				alert('Button Clicked!')
+				document.getElementById("text").innerHTML = "Hello Rob!";
+			}
+		</script>
+	</body>
+</html>

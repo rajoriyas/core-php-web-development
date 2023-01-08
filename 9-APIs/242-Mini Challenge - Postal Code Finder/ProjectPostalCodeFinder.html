@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!--jquery-3.3.1.min.js-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Postal Code Finder</title>
+	<style type="text/css">
+		body {
+			width: 100%;
+			background: url("background.jpg") no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			text-align: center;
+			
+			/* vertical alignment*/
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-moz-transform: translateX(-50%) translateY(-50%);
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+			
+			color: white;
+			font-family: Garamond;
+		}
+		.container {
+			width: 60%;
+			text-align: center;
+		}
+		#address {
+			text-align: center;
+		}
+		#postal {
+			margin-top: 20px;
+			display: none;
+		}
+		#message {
+			margin-top: 20px;
+		}
+	</style>
+  </head>
+  <body>
+	<div class="container">
+		<div class="form-group">
+			<h1>Address</h1>
+			<input type="text" id="address" class="form-control" placeholder="Enter Address">
+		</div>
+		<button id="submit" type="submit" class="btn btn-primary">Find</button><br>
+		<!--<div class="alert alert-success" role="alert" id="postal"></div>-->
+		<div id="message"></div>
+	</div>
+    <!-- Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$("#submit").click(function(e) { 
+			//Restrict to submiting form 
+			e.preventDefault();			
+			$.ajax({	
+																							//Encode URL
+				url: "https://maps.googleapis.com/maps/api/geocode/json?address="+encodeURIComponent($('#address').val())+"&key=AIzaSyCly0XXUHZA4o16By1lrBg1UBr1pdTZqSI",
+				type: "GET",
+				success: function(data) {
+					console.log(data);
+					//proper address is not there
+					if(data['status'] != "OK") {
+						$("#message").html('<div class="alert alert-danger" role="alert">Address is not found!</div>');
+					}
+					else {
+						$.each(data["results"][0]["address_components"], function(key, values) {
+							if(values["types"][0] == "postal_code") {
+								/*$("#postal").css("display","block");	
+								$("#postal").html(values["long_name"]);*/
+								$("#message").html('<div class="alert alert-success" role="alert">Postal Code: '+values["long_name"]+'</div>');
+							} 
+							//proper address is not there
+							else {
+								$("#message").html('<div class="alert alert-danger" role="alert">Address is not found!</div>');
+							}
+						})
+					} 				
+				},
+				//url address is not valid
+				error: function(data) {
+					$("#message").html('<div class="alert alert-danger" role="alert">Address is not found!</div>');
+				}
+			})
+		});
+	</script>
+  </body>
+</html>

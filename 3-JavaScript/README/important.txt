@@ -1,0 +1,6 @@
+Complete the below JavaScript with the method to put each item in the comma-separated list into an array containing each item.
+		var shoppingList = "eggs,milk,butter,bananas,apples,bread";
+Answer:-	var shoppingListArray = shoppingList.[no answer] (correct answer: split(",") or split(','));
+
+Que. What does the "scope" of a variable refer to?
+Ans. In which circumstances a variable can be used (e.g. in the entire script, just in one function, etc.)

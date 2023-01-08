@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript - Variable</title>
+	</head>
+	<body>
+		<p>How many fingers are you holding up?</p>
+		<select id="myNumber">
+			<option>0</option>;
+			<option>1</option>;
+			<option>2</option>;
+			<option>3</option>;
+			<option>4</option>;
+			<option>5</option>;
+		</select>	
+		<button id="check">validate</button>
+		<script type="text/javascript">
+			document.getElementById("check").onclick = function() {
+				var enteredText = document.getElementById("myNumber").value;
+				var gotIt = false; //Boolean
+				var turns = 1;
+				while(gotIt == false) {
+					var rand = Math.floor(Math.random()*6);
+					if(enteredText == rand) {
+						alert("Yoo!, that's right. You've caught it by "+turns+" turn");
+						turns = 1;
+						gotIt=true;
+					}
+					else {
+						turns++;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

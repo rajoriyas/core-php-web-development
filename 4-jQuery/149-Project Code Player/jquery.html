@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-heigth, initial-scale=1.0">
+    <title>Code Player</title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding:0;
+        margin:0;
+      }
+      #menu {
+        margin: 0 auto;
+        width: 100%;
+        height: 38px;
+        background-color:#ECECEC;
+        border-bottom:1px #BEBEBE solid;
+        border-top:1px #BEBEBE solid;
+      }
+      h1 {
+        margin: 0 auto;
+        float: left;
+        font-family: 'Dosis', sans-serif;
+        color: grey;
+        position: relative;
+        left: 3%;
+      }
+      #buttons {
+        /*Center Align*/
+        margin: 0;
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translate(-50%, 0%);
+        transform: translate(-50%, 0%);
+
+        margin-top: 3px;
+        background-color: #ECECEC;
+        border-radius: 5px;
+        border: 2px #BEBEBE solid;
+      }
+      .button {
+        float: left;
+        padding: 0;
+        width: auto;
+        height: 15px;
+
+        margin: 0;
+        padding: 5px 8px;
+        border-right: 1px #BEBEBE solid;
+        border-radius: 3px;
+        font-size: 15px;
+      }
+      #tabs {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+      }
+      #output {
+        border: none;
+      }
+      .active {
+        background-color: #E6F1FF;
+      }
+      .highlighted {
+        background-color: #E3E3E3;//dark grey
+      }
+      .activeHighlighted {
+        background-color: #F4F9FF;
+      }
+      .panel {
+        float: left;
+        border: none;
+        border-right: 1px solid #BEBEBE;
+        resize: none;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu">
+      <h1>Code Player</h1>
+      <div id="buttons">
+        <div id="html" class="button active">HTML</div>
+        <div id="css" class="button">CSS</div>
+        <div id="javascript" class="button">Javascript</div>
+        <div class="button active" id="output">Output</div>
+      </div>
+    </div>
+    <div id="tabs">
+      <textarea id="htmlPanel" class="panel"><p id="paragraph">Hello </p></textarea>
+      <textarea id="cssPanel" class="panel hidden">p {color: red;}</textarea>
+      <textarea id="javascriptPanel" class="panel hidden">document.getElementById("paragraph").innerHTML+="rajoriyas";</textarea>
+      <iframe id="outputPanel" class="panel"></iframe>
+    </div>
+    <script type="text/javascript">
+      var numberOfActivePanels = 2;
+      $(".button").click(function() {
+      $(this).toggleClass("active");
+      $(this).removeClass("highlighted");
+      $(this).removeClass("activeHighlighted");
+      var panelName = $(this).attr("id")+"Panel";
+        if($(this).hasClass("active") == true) {
+          $("#"+panelName).removeClass("hidden");
+        }
+        else {
+          $("#"+panelName).addClass("hidden");
+        }
+        //tells the active class in elements
+        numberOfActivePanels = 4 - $(".hidden").length;
+        $(".panel").width(($(window).width() / numberOfActivePanels) - 5);
+      });
+      $(".button").hover(function() {
+        if($(this).hasClass("active") == true) {
+          $(this).addClass("activeHighlighted");
+        }
+        else {
+          $(this).addClass("highlighted");
+        }
+      }, function() {
+        if($(this).hasClass("active") == true) {
+          $(this).removeClass("activeHighlighted");
+        }
+        else {
+          $(this).removeClass("highlighted");
+        }
+      });
+      $(".panel").height($(window).height()-$("#menu").height()-10);
+      $(".panel").width(($(window).width() / numberOfActivePanels) - 5);
+      setInterval(function() {
+        $(".panel").height($(window).height()-$("#menu").height()-10);
+        $(".panel").width(($(window).width() / numberOfActivePanels) - 5);
+      }, 100);
+      function updateOutput() {
+        $("#outputPanel").contents().find("html").html("<html><head><style type='text/css'>"+$('#cssPanel').val()+"</style></head><body>"+$('#htmlPanel').val()+"</body></html>");
+        document.getElementById("outputPanel").contentWindow.eval($("#javascriptPanel").val()); //eval used to run javascript strings
+      }
+      updateOutput();
+      $("#htmlPanel").bind('change keyup paste', function() {
+        updateOutput();
+      });
+      $("#cssPanel").on('change keyup paste', function() {
+        updateOutput();
+      });
+      $("#javascriptPanel").on('change keyup paste', function() {
+        updateOutput();
+      });
+    </script>
+  </body>
+</html>

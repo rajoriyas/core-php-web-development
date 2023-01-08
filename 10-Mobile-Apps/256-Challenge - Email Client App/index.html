@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="app.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <style>
+		@-webkit-keyframes pulse {
+			0% {
+				background-color: #CCC;
+			}
+			25% {
+				background-color: #EEE;
+			}
+			50% {
+				background-color: #CCC;
+			}
+			75% {
+				background-color: #EEE;
+			}
+			100% {
+				background-color: #CCC;
+			}
+		}
+		.title-font {
+			font-family: 'Pacifico', cursive;
+		}
+		#headline {
+			text-align: center;
+		}
+		#error {
+			background: #FA8072;
+			color: #8B0000;
+			text-align: center;
+		}
+		#message {
+			background: #32CD32;
+			color: 	#006400;
+			text-align: center;
+		}
+    </style>
+  </head>
+
+  <body>
+    <div class="app-page" data-page="home">
+      <div class="app-topbar blue">
+        <div class="app-title title-font">rMail</div>
+      </div>
+	  <div class="app-content">
+		<p id="headline" class="app-section">... Send mail to everyone with login ...</p>
+		<div id="recipientList" class="app-section"></div>
+		<div class="app-section app-button blue title-font" data-target="mailbox">Send a New Email</div>
+	  </div>
+	</div>
+	<div class="app-page" data-page="mailbox">
+      <div class="app-topbar blue">
+		<div id="done" class="app-button right">Done</div>
+        <div class="app-title title-font">Send Email</div>
+      </div>
+	  <div class="app-content">
+		<div id="message" class="app-section"></div>
+		<div id="error" class="app-section"></div>
+		<div class="app-section">
+			From:<input class="app-input" id="sender" placeholder="Sender Email Address">
+		</div>
+		<div class="app-section">
+			To:<input class="app-input" id="recipient" placeholder="Recipient Email Address">
+		</div>
+		<div class="app-section">
+			<input id="subject" class="app-input" placeholder="Subject">
+			<textarea id="content" class="app-input" placeholder="Message"></textarea>
+			<div id="send-button" class="title-font app-button blue">Send</div>
+		</div>
+	  </div>
+	</div>
+
+
+    <script src="zepto.js"></script>
+    <script src="app.min.js"></script>
+    <script>
+	//	localStorage.removeItem("recipients-Email");
+	//	localStorage.removeItem("key");
+		App.controller('home', function (page) {
+			var recipientArray = new Array();
+			if(typeof(Storage) !== "undefined") {
+				if(JSON.parse(localStorage.getItem("recipients-Email")) !== null) {
+					recipientArray = JSON.parse(localStorage.getItem("recipients-Email"));
+					$.each(recipientArray, function(key, value) {
+						$(page).find("#recipientList").append("<div class='app-button recipientClass'>"+value+"</div>").show();
+					});
+				} 
+				else {
+					$(page).find("#recipientList").hide();	
+				}
+			}
+			$(page).find(".recipientClass").clickable().on("click", function() {
+				localStorage.setItem("recipient-email", $(this).html());
+				App.load("mailbox");
+			});
+		});
+
+		App.controller('mailbox', function (page) {
+			$(page).find("#message").hide();
+			$(page).find("#error").hide();
+			var key = -1;
+			var recipientArray = [];
+			var isNotStored = true;
+			var storedEmail = [];
+			$(page).find("#done").clickable().on("click", function() {
+				App.load("home");
+			});
+			if(typeof(Storage) !== "undefined") {
+				if(localStorage.getItem("sender-email") !== null) {
+					$(page).find("#sender").val(localStorage.getItem("sender-email"));
+				}
+				if(localStorage.getItem("key") !== null) {
+					//string to integer
+					key = parseInt(localStorage.getItem("key"));
+				}
+				if(localStorage.getItem("recipient-email") !== null) {
+					$(page).find("#recipient").val(localStorage.getItem("recipient-email"));
+					localStorage.setItem("recipient-email", "");
+				}
+			}
+			else {
+				//comment
+			}
+			$(page).find("#send-button").clickable().on("click", function() {
+				$(page).find("#message").hide();
+				$(page).find("#error").hide();
+				//attempt to send email
+				if(typeof(Storage) !== "undefined") {
+					localStorage.setItem("sender-email", $("#sender").val());
+					if(JSON.parse(localStorage.getItem("recipients-Email")) !== null) {
+						recipientArray = JSON.parse(localStorage.getItem("recipients-Email"));
+						$.each(recipientArray, function(key, value) {
+							if(value === $(page).find("#recipient").val()) {
+								isNotStored = false;
+							}
+						});
+					}
+					if(isNotStored && $(page).find("#recipient").val()!== "") {
+						key = key + 1;
+						localStorage.setItem("key", key);
+						recipientArray[key] = $(page).find("#recipient").val();				
+					}
+					$.each(recipientArray, function(key, value) {
+						localStorage.setItem("recipients-Email", JSON.stringify(recipientArray));
+					});
+											
+				} else {
+					//alert
+				}
+				
+				//ajax	
+				$.ajax({
+					type: 'GET',
+					url: 'http://rmail-com.stackstaging.com/send.php',
+					// data to be added to query string:
+					data: { to: $("#recipient").val(), from: $("#sender").val(), subject: $("#subject").val(), content: $("#content").val()},
+					// type of data we are expecting in return:
+					dataType: 'jsonp',
+					async: false,
+					timeout: 3000,
+					context: $('body'),
+					success: function(data){
+						if (data.success == true) {
+							$(page).find("#message").html("Your email was sent successfully!").show();
+						} else {
+							$(page).find("#error").html("Your email could not be sent - please try again later.").show();
+						}	
+					},
+					error: function(xhr, type){
+						$(page).find("#error").html("Your email could not be sent - please try again later.").show(); 
+					}
+				});
+			});
+		});
+		try {
+			App.restore();
+		} catch (err) {
+			App.load('home');
+		}
+    </script>
+  </body>
+</html>

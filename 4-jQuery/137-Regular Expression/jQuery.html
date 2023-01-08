@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+		<head>
+			<title>AJAX</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!jquery-3.3.1.min.js>
+          	</head>
+		<body>
+          	<p></p>
+			<script type="text/javascript">
+				var regex = /e/;
+				var string = "Regex is great";
+				var result = string.match(regex);
+				alert(result);
+				//case insensitive
+				var regex = /GREAT/i;
+				var string = "Regex is great";
+				var result = string.match(regex);
+				alert(result);
+				//global
+				var regex = /e/g;
+				var string = "Regex is grEat";
+				var result = string.match(regex);
+				alert(result);
+				//global+case insensitive
+				var regex = /e/gi;
+				var string = "Regex is grEat";
+				var result = string.match(regex);
+				alert(result);
+			</script>
+		</body>
+</html>
+

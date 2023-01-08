@@ -1,0 +1,9 @@
+Consumer API keys
+CRJUvOWmshYaVqVoll9mfO0k5 (API key)
+
+RDGhniR8zLWvhKRbIHUZAyehbOgmTkQDOJtXGwNFZeCn9OU3iJ (API secret key)
+
+Access token & access token secret
+1088743032609038338-L7LEQECBg0EUexgwLvRvLf99s0KIl2 (Access token)
+
+kaiTs2hGQzfqeXvx74k5GIs4TdFxo35rGHezbQrIQgHta (Access token secret)

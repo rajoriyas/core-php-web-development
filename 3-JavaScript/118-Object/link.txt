@@ -1,0 +1,4 @@
+Method:- https://www.w3schools.com/js/js_object_methods.asp
+Getter:- https://www.w3schools.com/js/js_object_accessors.asp
+Constructors:- https://www.w3schools.com/js/js_object_constructors.asp
+Protypes:- https://www.w3schools.com/js/js_object_prototypes.asp

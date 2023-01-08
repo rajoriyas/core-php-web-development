@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Advanced Selector</title>
+		<style>
+			h1 {
+				color: green;
+			}
+			.red {
+				color: red;
+			}
+			#grey {
+				color: grey;
+			}
+			div p {
+				font-weight: bold;
+			}
+			h3 ~ p { 
+				text-decoration: underline;
+				<!--h3 containing group's paragraph-->
+			}
+			h3 + p { 
+				font-size: 150%;
+				<!--h3 above paragraph-->
+			}
+			a[target] {
+				font-size: 200%;
+			}
+			a[href="http://www.google.com"] {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<!-- 
+		for href
+		*= - if it has
+		^= - if it starts with this
+		$= - if ends with this
+		~= - if has value between two spaces
+		|= - if it has value separeted by hyphens(-)
+	-->
+	<body>
+		<h1>I'm a heading.</h1>
+		<div>
+			<h3>I'm a h3 element.</h3>
+			<p class="red">I'm Paragraph.</p>
+			<a id="grey" href="http://www.google.com" target="_blank">I am a link.</a>			
+		</div>
+		<div>
+			<p>I'm another div paragraph</p>
+		</div>
+		<p>I'm Outsider Paragraph</p>
+		<h3>I'm Outsider h3 element.</h3>
+		<a id="grey" href="">I am another link.</a>
+	</body>
+</html>

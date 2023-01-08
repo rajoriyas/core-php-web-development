@@ -1,0 +1,532 @@
+<html>
+	<head>
+		<title>Technology - BBC News</title>
+		<link rel="shortcut icon" href="images/title.png" />
+		<style type="text/css">
+			body {
+				margin:0 auto;
+				max-width: 100%;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			.font {
+				font-family:Helvetica;
+				font-size:90%;
+				font-weight:bold;
+			}
+			#topbar {
+				height:40px;
+				border-bottom:1px #cccccc solid;
+				border-weight:100%;
+			}
+			.border {
+				border-left:1px #cccccc solid;
+				height:100%;
+			}
+			#logo {
+				float:left;
+				margin:6px 6px 6px 0px;
+				padding-left:186px;
+			}
+			#signin {
+				float:left;
+				width:166px;
+				margin:0px;
+			}
+			#signin-logo {
+				float:left;
+				margin:9px 5px 9px 14px;
+			}
+			.text-block {
+				margin:13px 12px;
+			}
+			.block {
+				float:left;
+			}
+			#arrow {
+				float:left;
+				height:3px;
+				margin:39px 39px 0px 39px;	
+				position:relative;
+				left:27px;
+				margin-top:20px;
+			}
+			#search-text {
+				margin:8px 0px 0px 11px;
+				background-color:#E4E4E4;
+				height:24px;	
+				width:168px;
+				border:none;
+				padding:0px 6px;
+				font-size:80%;
+			}
+			#search {
+				margin:8px -10px 8px 0px;
+			}
+			#menubar {
+				margin-top:-40px;
+			}
+			#menubar1 {
+				height:56px;
+				background-color:#BB1919;
+				font-size:40px;
+				color:white;
+				font-family:arial;
+				margin:0 auto;
+			}
+			#mtext1 {
+				position:relative;
+				left:185px;
+				padding-top:6px;
+			}
+			#menubar2 {
+				width:100%;
+				height:36px;
+				background-color:#A91717;
+				font-family:arial;
+				color:white;
+				font-size:90%;
+			}
+			.block2 {
+				position:relative;
+				top:-3px;
+				left:186px;
+				float:left;
+				margin-right:12px;
+			}
+			.mblock {
+				border-left:1px #BB4545 solid;
+				height:45%;
+				padding-left:11px;	
+				float:left;
+			}
+			#warrow {
+				position:relative;
+				top:20px;
+				left:5px;
+			}
+			#headline {
+				font-family:arial;
+				font-size:20px;
+				margin-top:9px;
+				position:relative;
+				left:186px;
+				border-bottom:3px #BB1919 solid;
+				width:102px;
+			}
+			#headline2 {
+				font-family:arial;
+				position:relative;
+				left:186px;
+				top:-19px;
+				font-size:197%;
+				letter-spacing:0px;
+				float:left;
+			}
+			#headline2:hover {
+				color:#1167A8;
+			}
+			#ad {
+				font-family:arial;
+				color:#505050;
+				position:absolute;
+				right:310px;	
+				top:177px;
+				font-size:75%;
+			}
+			#ad:hover {
+				border-bottom:1px #505050 solid;
+			}
+			#matter1 {
+				font-family:arial;
+				width:245px;
+				color:#505050;
+				font-size:90%;
+				margin-left:186px;
+				position:absolute;
+				top:225px;
+			}
+			.clock {
+				height:15px;
+				padding-right:3px;
+				float:left;
+			}
+			.time {
+				font-family:arial;
+				color:#505050;
+				font-size:90%;
+				width:73px;
+				border-right:1px #DCDCDC solid;
+				float:left;
+				margin-top:1px;
+				margin-right:8px;
+			}
+			#pos {
+				width:39px;
+				position:relative;
+				left:-152px;	
+				top:-2px;
+				color:#BB1919;
+				border:0.5px #BB1919 solid;
+			}
+			#tech {
+				font-family:arial;
+				color:#BB1919;
+				font-size:90%;
+			}
+			#pic-loc {
+				position:absolute;
+				top:15px;
+				left:250px;
+			}
+			#news-pic {
+				height:35%;
+				float:left;
+			}
+			#pos2 {
+				position:relative;
+				top:290px;
+				right:475px;
+				width:640px;
+				border:0.5px #DBDBDB solid;
+			}
+			#page-container {
+				position:relative;
+				left:840px;
+				top:35px;
+				padding:0;
+				border-left:1px #DCDCDC solid;
+				height:100%;
+			}
+			#watchlisten {
+				font-family:arial;
+				color:#4f4f4f;
+				font-size:25px;	
+				position:relative;
+				right:600px;
+				top:0px;
+				font-size:25px;
+			}
+			.img {
+				position:relative;
+				left:15px;
+				bottom:10px;
+				float:left;
+			}
+			.article {
+				position:relative;
+				left:25px;
+				bottom:10px;
+				width:300px;
+				font-family:arial;
+				font-size:15px;
+				font-weight:bold;
+			}
+			.clock2 {
+				height:15px;
+				padding-right:3px;
+				float:left;
+				position:relative;
+				bottom:18px;
+				left:24px;
+				
+			}
+			.time2 {
+				font-family:arial;
+				color:#505050;
+				font-size:90%;
+				position:relative;
+				bottom:32px;
+				padding-right:8px;
+				left:24px;
+				border-right:1px #DCDCDC solid;
+				float:left;				
+			}
+			.belongs {
+				font-family:arial;
+				color:#505050;
+				font-size:90%;
+				position:relative;
+				bottom:18px;
+				left:32px;
+				color:#BB1919;
+			}
+			.belongs:hover {
+				color:#505050;
+			}
+			.img2 {
+				position:relative;
+				right:208px;
+				bottom:10px;
+				float:left;
+			}
+			.article2 {
+				position:relative;
+				left:135px;
+				bottom:75px;
+				width:150px;
+				font-family:arial;
+				font-size:15px;
+				font-weight:bold;
+			}
+			.clock3 {
+				height:15px;
+				padding-right:3px;
+				float:left;
+				position:relative;
+				bottom:75px;
+				left:135px;
+				
+			}
+			.time3 {
+				font-family:arial;
+				color:#505050;
+				font-size:90%;
+				position:relative;
+				bottom:75px;
+				padding-right:8px;
+				left:135px;				
+			}
+			.belongs2 {
+				border-left:1px #DCDCDC solid;
+				height:18px;
+				font-family:arial;
+				color:#505050;
+				font-size:90%;
+				position:relative;
+				bottom:80px;
+				left:135px;
+				margin:0;
+				padding-left:8px;
+				color:#BB1919;
+				width:100px;
+			}
+			.belongs2:hover {
+				color:#505050;
+			}
+			#adjust {
+				position:relative;
+				bottom:75px;
+			}
+			#adjust2 {
+				position:relative;
+				bottom:75px;
+				right:222px;
+			}
+			.article4 {
+				position:relative;
+				left:355px;
+				bottom:70px;
+				width:200px;
+				font-family:arial;
+				font-size:15px;
+				font-weight:bold;
+			}
+			.clock4 {
+				height:15px;
+				padding-right:3px;
+				float:left;
+				position:relative;
+				bottom:75px;
+				left:355px;
+				
+			}
+			.time4 {
+				font-family:arial;
+				color:#505050;
+				font-size:90%;
+				position:relative;
+				bottom:75px;
+				padding-right:8px;
+				left:355px;				
+			}
+			.belongs4 {
+				border-left:1px #DCDCDC solid;
+				height:18px;
+				font-family:arial;
+				color:#505050;
+				font-size:90%;
+				position:relative;
+				bottom:80px;
+				left:355px;
+				margin:0;
+				padding-left:8px;
+				color:#BB1919;
+				width:100px;
+			}
+			.img4 {
+				position:relative;
+				bottom:355px;
+				left:180px;
+				border-right:1px #DCDCDC solid;
+				padding:12px;
+			}
+			.img5 {
+				position:relative;
+				bottom:358px;
+				left:165px;
+				border-right:1px #DCDCDC solid;
+				padding:12px;
+				border-height:100%;
+				margin-left:12px;
+			}
+			#article3 {
+				width:120px;
+				font-family:arial;
+				font-size:18px;
+				font-weight:bold;
+				position:relative;
+				bottom:513px;
+				left:680px;
+			}
+			#tym {
+				position:relative;
+				bottom:450px;
+				left:544px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<img id="logo" src="images/bbc-logo.png">
+			<div id="signin" class="border font">
+				<img id="signin-logo" src="images/signin-logo.png">	
+				<p class="text-block font">Sign in</p>
+			</div>
+			<div class="block border font">
+				<p class="text-block font">News</p>
+			</div>
+			<div class="block border font">
+				<p class="text-block font">Sport</p>
+			</div>
+			<div class="block border font">
+				<p class="text-block font">Weather</p>
+			</div>
+			<div class="block border font">
+				<p class="text-block font">Shop</p>
+			</div>
+			<div class="block border font">
+				<p class="text-block font">Reel</p>
+			</div>
+			<div class="block border font">
+				<p class="text-block font">Travel</p>
+			</div>	
+			<div class="block border font">
+				<p class="block text-block font">More</p>
+				<img id="arrow" src="images/arrow.png">	
+			</div>
+			<div class="block border">
+				<div id="box" class="block">
+					<input type="text" id="search-text" class="font" value="Search">
+				</div>
+				<input type="image" id="search" src="images/search.png">	
+			</div> 
+		</div>
+		
+		<div id="menubar">
+			<div id=menubar1>
+				<p id=mtext1>NEWS</p>
+			</div>
+			<div id=menubar2>
+				<div class="block2">
+					<p>Home</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">Video</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">World</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">Asia</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">UK</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">Business</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">Tech</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">Science</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">Stories</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">Entertainment & Arts</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">Health</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">World News TV</p>
+				</div>
+				<div class="block2">
+					<p class="mblock">More</p>
+					<img id="warrow" src="images/w-arrow.png">
+				</div>
+			</div>
+		</div>
+		
+		<div>
+			<p id="headline">Technology</p>
+			<h1 id="headline2">WhatsApp 'weaponised' in Brazil election</h1>
+			<h5 id="ad">ADVERTISEMENT</h5>
+		</div>
+		<div id="matter1">
+			<p id="tag1">Software is being used to scrape phone numbers and send thousands of message in minutes.</p>
+			<img class="clock" src="images/clock.png">
+			<p class="time" >4 hours ago</p>
+			<p id="tech">Technology</p>
+			<hr id="pos">
+			<div id="pic-loc">
+				<img id="news-pic"src="images/news-pic.jpg">
+			</div>
+		</div>
+		<hr id="pos2">
+		<div id="page-container">
+			<p id="watchlisten">Watch/Listen</p>
+			<div>
+				<img class="img" src="images/img1.png">	
+				<p class="article">VR esports: Gaming for sporty people?</p>
+				<img class="clock2" src="images/clock.png">
+				<p class="time2" >27 hours ago</p>
+				<p class="belongs">Jersey</p>
+			</div>	
+			<div>
+				<img class="img2" src="images/img2.png">	
+				<p class="article2">Click News: Micro drones pull heavy objects</p>
+				<img class="clock3" src="images/clock.png">
+				<p class="time3" >27 hours ago</p>
+				<p class="belongs2">Technology</p>
+			</div>	
+			<div id="adjust">
+				<img class="img" src="images/img3.png">	
+				<p class="article">Robot arm exploring underwater life</p>
+				<img class="clock2" src="images/clock.png">
+				<p class="time2" >27 hours ago</p>
+				<p class="belongs">Technology</p>
+			</div>
+			<div id="adjust2">
+				<img class="img" src="images/img6.png">	
+				<p class="article4">Photographer makes camera lens out of ice</p>
+				<img class="clock4" src="images/clock.png">
+				<p class="time4" >27 hours ago</p>
+				<p class="belongs4">Technology</p>
+			</div>
+		</div>
+		<div>
+			<img class="img4" src="images/img4.png">	
+			<img class="img5" src="images/img5.png">	
+			<p id="article3">Call of Duty hoaxer faces more charges</p>
+			<div id="tym">
+				<img class="clock3" src="images/clock.png">
+				<p class="time3" >26 hours ago</p>
+				<p class="belongs2">Technology</p>
+			</div>	
+		</div>
+	</body>
+</html>

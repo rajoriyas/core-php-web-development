@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+		<head>
+			<title>jQuery</title>
+			<script src="jquery-3.3.1.min.js"></script> 
+			<style type="text/css">
+				#circle {
+					width:150px;
+					height:150px;
+					border-radius:50%;
+					background-color:green;
+					margin:15px;
+				}
+			</style>
+		</head>
+		<body>
+			<div id="circle" class="tooltip"></div>
+			<p>this is some text.</p>
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/uWD2eQOQ3U8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<script type="text/javascript">
+				$("div").mouseenter(function() {		//hover means enter and leave combine, can be used there.
+					$("p").html($("p").html()+" and updated.");	
+				});
+				$("div").mouseleave(function() {
+					$("p").html("this is some text.");	
+				});
+				$("div").hover(function() {				//click can be replaced with hover, if you want to use click.
+					$("iframe").attr("src","https://www.youtube.com/embed/MR7dd0Mp-XM");	
+				});	
+			</script>
+		</body>
+</html>

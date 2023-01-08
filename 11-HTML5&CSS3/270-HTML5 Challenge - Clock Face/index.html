@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>Analog Clock</title>
+	</head>
+	<body>
+		<canvas  id="mycanvas" width="500" height="500">Please upgrade your browser!</canvas> 	
+		<script>
+			function setTime() {
+				var mycanvas = document.getElementById("mycanvas");
+				var context = mycanvas.getContext("2d");
+				var clockRadius = mycanvas.width/2;
+				
+				context.beginPath();
+				
+				context.fillStyle = "black";
+				
+				context.arc(clockRadius, clockRadius, clockRadius, 0, 2*Math.PI);
+				context.fill();
+				
+				context.font = clockRadius/10 +"px arial";
+				context.fillStyle = "white";
+				//horizontal alignment
+				context.textAlign = "center";
+				//vertical alignment
+				context.textBaseline = "middle";
+				for (i=1 ; i<=12 ; i++) {
+					context.fillText(i , clockRadius+(clockRadius*0.9*Math.sin(i*2*Math.PI/12)), clockRadius-(clockRadius*0.9*Math.cos(i*2*Math.PI/12)));
+				}
+				context.beginPath();
+				context.arc(clockRadius, clockRadius, 10, 0, 2*Math.PI);
+				context.fill();
+				
+				var date = new Date();
+				var hours = date.getHours();
+				var min = date.getMinutes();
+				var sec = date.getSeconds();
+				
+				context.strokeStyle = "white";
+				context.moveTo(clockRadius, clockRadius);
+				context.lineTo(clockRadius+(clockRadius*0.5*Math.sin(hours*2*Math.PI/12)), clockRadius-(clockRadius*0.5*Math.cos(hours*2*Math.PI/12)));
+				context.lineWidth = "5";
+				context.stroke();
+				
+				context.moveTo(clockRadius, clockRadius);
+				context.lineTo(clockRadius+(clockRadius*0.7*Math.sin(min*2*Math.PI/60)), clockRadius-(clockRadius*0.7*Math.cos(min*2*Math.PI/60)));
+				context.lineWidth = "3";
+				context.stroke();
+				
+				context.moveTo(clockRadius, clockRadius);
+				context.lineTo(clockRadius+(clockRadius*0.9*Math.sin(sec*2*Math.PI/60)), clockRadius-(clockRadius*0.9*Math.cos(sec*2*Math.PI/60)));
+				context.lineWidth = "2";
+				context.stroke();
+			}
+			setInterval(setTime, 1000);	
+		</script>
+	</body>
+</html>

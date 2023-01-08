@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>HTML Form Feature</title>
+	</head>
+	<body>
+		<form id="myForm" action="processform.php">
+			<p>Placeholder:<input type="text" placeholder="This is placeholder"></p>
+			<p>Autofocus:<input type="text" autofocus></p> <!-- in other feature autofocus="autofocus" -->
+			<p>Autocomplete:<input type="text"autocomplete="off"></p> <!-- off predection for security purpose like credit card etc...-->
+			<p>Required:<input type="text" required></p>
+			<p>Email:<input type="email"></p>
+			<p>Pattern:<input type="text" pattern="[0-9]"></p>
+				<datalist id="names">
+					<select>
+						<option value="Rahul"></option>
+						<option value="Guddan"></option>
+						<option value="Varsha"></option>
+					</select>	
+				</datalist>
+			<p>Autocomplete using list:<input type="text" list="names"></p>	
+			<p>Multiple file upload:<input type="file" multiple></p>
+			<p><input type="submit" value="Submit" formaction="processform2.php" formmethod="get">
+		</form>
+		<p>Code out of form:<input type="text" form="myForm"></p>
+	</body>
+</html>

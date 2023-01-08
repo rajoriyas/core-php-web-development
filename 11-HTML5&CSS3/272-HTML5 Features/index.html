@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>HTML5 Features</title>
+		<script>document.createElement("container");</script>
+	</head>
+	<style>
+		article {
+			color: green;
+		}
+		header, footer, article, section, nav, menu {
+			display: block;
+		}
+	</style>
+	<body>
+		<article>
+			I'm article!
+		</article>
+		<container>
+			I'm container!
+		</container>
+		<figure>
+			<img data-description="Baby" id="baby" src="https://upload.wikimedia.org/wikipedia/en/9/9d/Maggie_Simpson.png" alt="Maggie Simpson"> <!-- In HTMl an image had to have an alt tag to react as html-->
+			<figcaption>
+				<p><mark>Maggie Simpson</mark> <small>(Wikipedia)</small></p>
+			</figcaption>
+		<figure>
+		<input type="range" min="0" max="100" step="10">
+		<p contenteditable="true">Hello!</p>
+		<ul contenteditable="true">
+			<li>Milk</li>
+		</ul>
+		<script>
+			alert(document.getElementById("baby").getAttribute("data-description"));      
+      </script>
+	</body>
+</html>

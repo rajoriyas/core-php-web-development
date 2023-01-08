@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Pseudo-Classes</title>
+		<style>
+			a:hover {
+				text-decoration: none;
+			}
+			input:focus {
+				background-color: grey;
+			}
+			input:enabled {}
+			input:disabled {}
+			input:checked {}
+			p:first-child {
+				color: aquamarine;
+			}
+			p:last-child {
+				text-decoration: underline;
+			}
+			p:only-child {
+				font-size: 50px;
+			}
+			p:first-of-type {
+				font-style: italic;
+			}
+			/* last-of-type and only-of-type are also allowed */
+			tr:nth-child(2n-1) {
+				background-color: green;
+			}
+			/*
+				nth-last-type - count backward!
+				nth-of-type - only count a certain type
+			*/
+			div:empty {
+				display:none;
+			}
+			p:not(.green) {}
+			:not(div) {}
+			p:first-letter {
+				font-size: 70px;
+			}
+			/* first-line is also allowed */
+			a:after {
+				/*content: " This is a link also."*/
+				content: " ("attr(href)")";
+			}
+		</style>
+	</head>
+	<body>
+		<p>I'm Other Paragraph.</p>
+		<h1>I'm a heading.</h1>
+		<div>
+			<h3>I'm a h3 element.</h3>
+			<p class="red">I'm Paragraph.</p>
+			<a id="grey" href="http://www.google.com" target="_blank">I am a link.</a>			
+		</div>
+		<div>
+			<p>I'm Other Paragraph.</p>
+		</div>
+		<input type="text">
+		<table>
+			<tr><td>Rahul</td></tr>
+			<tr><td>Guddan</td></tr>
+			<tr><td>Varsha</td></tr>
+		</table>
+	</body>
+</html>

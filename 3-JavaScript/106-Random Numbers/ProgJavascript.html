@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript - Variable</title>
+	</head>
+	<body>
+		<p>Guess, How many fingers have i crossed?</p>
+		<input type="text" id="enteredNo">
+		<button id="check">validate</button>
+		<script type="text/javascript">
+			document.getElementById("check").onclick = function() {
+				var rand = Math.floor(Math.random()*5);
+				var enteredNum = document.getElementById("enteredNo").value;
+				if(rand == enteredNum) {
+					alert("Hi!, that's correct.");
+				}
+				else {
+					alert("Nope!, Correct Answer is "+rand+". try again.");
+				}
+			}
+		</script>
+	</body>
+</html>

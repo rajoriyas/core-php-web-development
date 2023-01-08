@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript - Variable</title>
+	</head>
+	<body>
+		<input id="textInput" type="text">
+		<button id="changeButton">change text</button>
+		<p id="Para">this is some text</p>
+		<script type="text/javascript">
+			document.getElementById("changeButton").onclick = function() {
+				var text = "";
+				text = document.getElementById("textInput").value;
+				alert(text);
+				document.getElementById("Para").innerHTML = text;
+			}
+		</script>
+	</body>
+</html>

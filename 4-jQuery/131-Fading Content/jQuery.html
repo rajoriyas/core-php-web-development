@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+		<head>
+			<title>jQuery</title>
+			<script src="jquery-3.3.1.min.js"></script>
+			<style type="text/css">
+				#circle {
+					width:150px;
+					height:150px;
+					border-radius:50%;
+					background-color:green;
+					margin:15px;
+					float:left;
+				}
+				#square {
+					width:150px;
+					height:150px;
+					background-color:blue;
+					margin:15px;
+					float:left;
+				}
+				#parabola {
+					width:200px;
+					height:150px;
+					border-radius:50%;
+					background-color:red;
+					margin:15px;
+					float:left;
+				}
+			</style>
+		</head>
+		<body>
+			<div id="circle"></div>
+			<div id="square"></div>
+			<div id="parabola"></div>
+			<p>This is text</p>
+			<button>Toggle Text</button>
+			<script type="text/javascript">
+				$("#circle").click(function() {
+					$("p").fadeOut("slow", function() {
+					alert("Paragraph has been fadded.");
+					});
+				});
+				$("#square").click(function() {
+					$("p").hide();
+				});
+				$("#parabola").click(function() {
+					$("p").fadeIn();
+				});
+				var fadding=false;
+				$("button").click(function() {
+					if(fadding==false) {
+						$("p").fadeOut("slow");
+						fadding=true;
+					}
+					else {
+						$("p").fadeIn("slow");
+						fadding=false;
+					}
+				});
+			</script>
+		</body>
+</html>

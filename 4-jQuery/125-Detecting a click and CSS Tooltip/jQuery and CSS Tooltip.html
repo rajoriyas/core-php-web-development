@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+		<head>
+			<title>jQuery</title>
+			<script src="jquery-3.3.1.min.js"></script> 
+			<style type="text/css">
+				#circle {
+					width:150px;
+					height:150px;
+					border-radius:50%;
+					background-color:green;
+					margin:15px;
+				}
+				.square {
+					width:150px;
+					height:150px;
+					margin:15px;
+				}
+				#red {
+					background-color:red;
+				}
+				#blue {
+					background-color:blue;
+				}
+				<! container>
+				.tooltip {
+				}
+				.tooltip .tooltiptext {
+					visibility:hidden;
+					width:auto;
+					background-color:black;
+					color:white;
+					text-align:center;
+					border-radius:5px;
+					padding:5px;
+					
+					position:relative;
+					top:75px;
+					left:75px;
+					z-index:1;
+					
+				}
+				.tooltip:hover .tooltiptext {
+					visibility: visible;
+				}
+			</style>
+		</head>
+		<body>
+			<div id="circle" class="tooltip"><span class="tooltiptext">This is green circle</span></div>
+			<div class="square tooltip" id="red"><span class="tooltiptext">This is red circle</span></div>
+			<div class="square tooltip" id="blue"><span class="tooltiptext">This is blue circle</span></div>
+			<script type="text/javascript">
+				$("div").click(function() {
+					alert("div");
+				})	
+			</script>
+		</body>
+</html>

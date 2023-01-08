@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+		<head>
+			<title>jQuery</title>
+			<script src="jquery-3.3.1.min.js"></script> 
+			<style type="text/css">
+				#circle {
+					width:150px;
+					height:150px;
+					border-radius:50%;
+					background-color:green;
+					margin:15px;
+				}
+			</style>
+		</head>
+		<body>
+			<div id="circle" class="tooltip"></div>
+			
+			<script type="text/javascript">
+				$("#circle").click(function() {
+					$(this).css("background-color","red");	
+					alert($("body").css("width")+" "+$("body").css("height"));		
+				});
+			</script>
+		</body>
+</html>
